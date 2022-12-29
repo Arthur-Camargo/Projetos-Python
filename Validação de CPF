@@ -1,0 +1,34 @@
+# Validaçao CPF
+num1 = input('Digite seu CPF:')
+cpf = num1
+if len(num1) != 11:
+    print('CPF inválido')
+lista = []
+lista2 = []
+x = 10
+x2 = 11
+for i, index in enumerate(num1):
+    index = int(index)
+    y = index * x
+    lista.append(y)
+    x -= 1
+    if i >= 8:
+        x = 0
+    y2 = index * x2
+    lista2.append(y2)
+    x2 -= 1
+    if i >= 9:
+        x2 = 0
+    if i == 9:
+        digito1 = index
+    if i == 10:
+        digito2 = index
+val = (sum(lista)) * 10 % 11
+val2 = (sum(lista2)) * 10 % 11
+if val == digito1:
+    if val2 == digito2:
+        print('CPF válido')
+    else:
+        print('CPF inválido')
+else:
+    print('CPF inválido')
